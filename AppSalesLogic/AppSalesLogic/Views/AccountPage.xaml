@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Class="AppSalesLogic.Views.AccountPage"
+             Title="Cuenta Cliente">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding AccountClients}">
+            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Text="Nombre Cliente:"></Label>
+                <Entry Text="{Binding Cliente.CustomerName}" Keyboard="Text" Placeholder="Nombre" HorizontalOptions="FillAndExpand" MaxLength="40" ></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Text="Direccion:"></Label>
+                <Entry Text="{Binding Cliente.Address}" Keyboard="Text" Placeholder="Direccion" HorizontalOptions="FillAndExpand" MaxLength="40" ></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Text="Telefono:"></Label>
+                <Entry Text="{Binding Cliente.Tel}" Keyboard="Telephone" Placeholder="+502 XXXX-XXXX" HorizontalOptions="FillAndExpand" MaxLength="10"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Text="Saldo:"></Label>
+                <Entry Text="{Binding Cliente.Balance}" Keyboard="Telephone" Placeholder="+502 XXXX-XXXX" HorizontalOptions="FillAndExpand" IsReadOnly="True"></Entry>
+            </StackLayout>
+            <StackLayout Padding="10,10">
+                <Button Text="Actualizar Cliente" BackgroundColor="MediumSeaGreen" TextColor="White"
+                        Command="{Binding UpdateClienteCommand}"
+                        IsEnabled="{Binding IsEnabled}"></Button>
+                <Button Text="{Binding TextCreate}" BackgroundColor="MediumSeaGreen" TextColor="White"
+                        Command="{Binding CreateAccountCommand}"
+                        IsEnabled="True"></Button>
+            </StackLayout>
+            <ActivityIndicator HeightRequest="10" Color="White" IsRunning = "{Binding IsBusy}" IsEnabled="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+            <StackLayout IsVisible="{Binding ShowCreate}">
+                <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                    <Label Text="Cuenta:"></Label>
+                    <Entry Text="{Binding AccountCreate.AccountName}" Keyboard="Text" Placeholder="Nombre de Cuenta" HorizontalOptions="FillAndExpand" MaxLength="40" ></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                    <Label Text="Moneda:"></Label>
+                    <Picker
+                        Title="Seleccionar Moneda"
+                        TitleColor="Blue"
+                        ItemsSource="{Binding ListPickerCurrency}"
+                        ItemDisplayBinding="{Binding Cur}"
+                        SelectedItem="{Binding SelectedCurrency}"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        WidthRequest="200">
+                    </Picker>                   
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                    <Label Text="Crédito:"></Label>
+                    <Entry Text="{Binding AccountCreate.InitialBalance}" Keyboard="Numeric" Placeholder="0.00" HorizontalOptions="FillAndExpand" MaxLength="30"></Entry>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Lista de Cuentas" ></Label>
+            </StackLayout>
+            <StackLayout>
+                <ListView ItemsSource="{Binding ListAccount}"
+              CachingStrategy="RecycleElement"
+              SelectedItem="{Binding AccountSelected, Mode=TwoWay}" HasUnevenRows="True"
+              RowHeight="60">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Margin="8">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding AccountName}" />
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding Currency}" />
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding Log.CreationDate, StringFormat='{0:MMMM dd, yyyy}'}"></Label>
+                                    </StackLayout>
+                                    <!--<Label Text="{Binding EntityID}" FontAttributes="Bold" />-->
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding InitialBalance,StringFormat='Crédito: {0:F0}'}" />
+                                        <Label HorizontalOptions="CenterAndExpand"  Text="{Binding PaidToDate,StringFormat='Pagado: {0:F0}'}" />
+                                        <Label HorizontalOptions="CenterAndExpand"  Text="{Binding PaidOpenToDate,StringFormat='Saldo: {0:F0}'}" />
+                                        <Label HorizontalOptions="EndAndExpand" Text="+ Pago" BackgroundColor="MediumSeaGreen" WidthRequest="70" HeightRequest="20" TextColor="White"/>
+
+                                    </StackLayout>
+                                  </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

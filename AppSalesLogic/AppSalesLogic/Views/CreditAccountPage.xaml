@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Class="AppSalesLogic.Views.CreditAccountPage"
+             Title="Crear Abono">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding CreditAccount}">
+            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Text="Cuenta:"></Label>
+                <Entry Text="{Binding Cuenta.EntityID}" Keyboard="Text" Placeholder="Nombre" HorizontalOptions="FillAndExpand" MaxLength="40" IsReadOnly="True"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                <Label Text="Total a Abonar:"></Label>
+                <Entry Text="{Binding PayAccountCreate.DocTotal}" Keyboard="Numeric" Placeholder="0.00" HorizontalOptions="FillAndExpand" MaxLength="40"></Entry>
+            </StackLayout>          
+            <StackLayout Padding="10,10">
+                <Button Text="Crear Abono" BackgroundColor="MediumSeaGreen" TextColor="White"
+                        Command="{Binding CreateCommand}"
+                        IsEnabled="{Binding IsEnabled}"></Button>
+            </StackLayout>
+            <ActivityIndicator HeightRequest="16" Color="White" IsRunning = "{Binding IsBusy}" IsEnabled="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

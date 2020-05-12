@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppSalesLogic.Views.MenuPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    Title="MENU">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="bg_menu.png" Aspect="AspectFill" />
+            <Frame BackgroundColor="#1a237e">
+                <Label Text="Menu" TextColor="White" Opacity="0.8"></Label>
+            </Frame>
+            <!--<Image 
+                Margin="0, 20, 0, 20"
+                HeightRequest="120"
+                Source="logo_azul">
+            </Image>-->
+            <ListView 
+                BackgroundColor="Transparent"
+                ItemsSource="{Binding Menus}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectMenuCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    HeightRequest="50"
+                                    Source="{Binding Icon}"
+                                    WidthRequest="50"
+                                    >
+                                </Image>
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                    TextColor="Black"
+                                    Text="{Binding Title}">
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
