@@ -38,14 +38,14 @@ MVVM
      - AutoMapper entre Models.DTO y Data.Model
      - Modelos utilizados en la API 
      - Modelos utilizados en la Aplicacion mobil
-  <img src="images/data1.PNG" height="200"></img>
+   <img src="images/api3.PNG" height="200"></img>
      
  # webapiapp Capa de Aplicación Logica de Negocio API
      - Proyecto Web API
      - Controllers
   <img src="images/api1.PNG" height="200"></img>
   <img src="images/api2.PNG" height="200"></img>
-  <img src="images/api3.PNG" height="200"></img>
+ 
   
  # AppSalesLogic Capa de Presentación de aplicación mobil - Xamarin Forms MVVM
      - Views
