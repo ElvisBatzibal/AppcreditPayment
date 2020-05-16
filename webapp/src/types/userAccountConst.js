@@ -1,0 +1,6 @@
+export const LOGGIN_START = "LOGGIN_START";
+export const LOGGIN_START_SUCCESS = "LOGGIN_START_SUCCESS";
+export const LOGGIN_START_ERROR = "LOGGIN_START_ERROR";
+
+export const LOGGIN_IN = "LOGGIN_IN";
+export const LOGGIN_OUT = "LOGGIN_OUT";
