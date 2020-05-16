@@ -10,16 +10,7 @@ MVVM
     
     Ejemplo 
   <img src="images/ERDB.png" height="200"></img>
-    
-    
-#  Data.ControlCenter Capa de acceso a datos
-     Persistencia con ORM NHibernate
-      - Model
-      - Repository
-      - Map
- <img src="images/data1.PNG" height="200"></img>
-   
-# Or Create DB of SQL DDL
+  # Or Create DB of SQL DDL
     
  <img src="images/db1.png" height="200"></img>
  <img src="images/db2.png" height="200"></img>
@@ -31,6 +22,16 @@ MVVM
  <img src="images/db8.png" height="200"></img>
  <img src="images/db9.png" height="200"></img>
    
+    
+    
+#  Data.ControlCenter Capa de acceso a datos
+     Persistencia con ORM NHibernate
+      - Model
+      - Repository
+      - Map
+ <img src="images/data1.PNG" height="200"></img>
+   
+
    
 # DomainModels 
     Coleccion de Modelos DTO a utilizar en la aplicaciones
