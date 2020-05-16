@@ -16,7 +16,7 @@ namespace Data.ControlCenter.Class
         /// <returns></returns>
         public string BdConexionDBAzureManagementApp()
         {                        
-            //return BdConexionDBAzure("tcp:devlogicstudio.database.windows.net,1433", "DemoLogicStudio", "DevLogicaStudio", "*DevAdmin2020");
+            return BdConexionDBAzure("tcp:serverazure.database.windows.net,1433", "database", "userdb", "passworduser");
         }
         /// <summary>
         /// Conection String
