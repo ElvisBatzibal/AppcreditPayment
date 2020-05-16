@@ -11,6 +11,8 @@ MVVM
     Ejemplo 
   <img src="images/ERDB.png" height="200"></img>
   # Or Create DB of SQL DDL
+  
+  Scripts Create Table, Create Store Procedures AppcreditPayment/SchemaDB/
     
  <img src="images/db1.png" height="200"></img>
  <img src="images/db2.png" height="200"></img>
