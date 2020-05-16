@@ -8,6 +8,9 @@ MVVM
 # # DataConfig
     Crea la estructura de base de datos a base de tus objetos con NHibernate
     
+    Ejemplo 
+    
+    
 # # Data.ControlCenter Capa de acceso a datos
      Persistencia con ORM NHibernate
       - Model
